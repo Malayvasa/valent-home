@@ -77,10 +77,21 @@ const bids = Array.from({ length: 4 }, (_, i) => nft);
 const bidscol1 = [data1, data2, textdr, nft];
 const bidscol2 = [data1, data2, textim, nft];
 const bidscol3 = [nft, data2, textfr, nft];
+const bidsmobile = [
+  data2,
+  textdr,
+  nft,
+  data1,
+  data2,
+  textim,
+  nft,
+  data1,
+  textfr,
+];
 
 export default function Home() {
   return (
-    <div className="p-8 relative h-screen flex flex-col gap-8">
+    <div className="p-8 relative overflow-hidden h-screen flex flex-col gap-8">
       <div className="mx-auto my-4">
         <svg
           className=""
@@ -120,7 +131,7 @@ export default function Home() {
           />
         </svg>
       </div>
-      <div className="flex justify-center items-center mx-auto space-x-8">
+      <div className="hidden md:flex justify-center items-center mx-auto space-x-8">
         <InfiniteScrollLoop direction={'up'} id={1}>
           {bidscol1.map((bid) => (
             <Bid type={bid.type} data={bid} />
@@ -137,13 +148,21 @@ export default function Home() {
           ))}
         </InfiniteScrollLoop>
       </div>
-      <div className="absolute bottom-24 left-1/2 -translate-x-[50%] flex  gap-8 flex-grow justify-center items-center">
-        <div className="w-64 bg-white text-black py-6 px-8 text-center rounded-xl font-bold text-2xl">
+      <div className=" md:hidden flex justify-center items-center md:mx-auto md:space-x-8">
+        <InfiniteScrollLoop direction={'down'} id={2}>
+          {bidsmobile.map((bid) => (
+            <Bid type={bid.type} data={bid} />
+          ))}
+        </InfiniteScrollLoop>
+      </div>
+      <div className="absolute p-8 bottom-24 left-1/2 -translate-x-[50%] flex flex-col md:flex-row gap-8 flex-grow justify-center items-center">
+        <div className="w-64 z-10 bg-white text-black py-6 px-8 text-center rounded-xl font-bold text-2xl">
           Borrow
         </div>
-        <div className="w-64 bg-white text-black py-6 px-8 text-center rounded-xl font-bold text-2xl">
+        <div className="w-64 z-10 bg-white text-black py-6 px-8 text-center rounded-xl font-bold text-2xl">
           Lend
         </div>
+        <div className="absolute p-12 inset-0 blur-xl bg-black"></div>
       </div>
     </div>
   );

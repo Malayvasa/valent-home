@@ -68,7 +68,6 @@ function InfiniteScrollLoop({
     <div className="infinite-scroll-loop-outer" style={outerStyle}>
       <div>
         <motion.div
-          layoutId={id}
           className="infinite-scroll-loop-inner"
           ref={scrollRef}
           style={{
