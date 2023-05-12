@@ -15,8 +15,8 @@ const data1 = {
   collateral_amount: 28,
   collateral_value: 51384,
   collateral_imageURL: 'weth.png',
-  interest: 317.5,
-  duration: 60,
+  interest: 157.5,
+  duration: 30,
 };
 
 const data2 = {
@@ -25,11 +25,11 @@ const data2 = {
   asset_imageURL: 'usdc.png',
   asset_amount: 33000,
   asset_value: 4999.98,
-  collateral: 'WETH',
+  collateral: 'DAI/ETH',
   collateral_amount: 18,
-  collateral_value: 51384,
-  collateral_imageURL: 'weth.png',
-  interest: 17.5,
+  collateral_value: 22384,
+  collateral_imageURL: 'daieth.png',
+  interest: 31.5,
   duration: 60,
 };
 
@@ -68,15 +68,30 @@ const nft = {
   collateral_value: 51384,
   collateral_token_id: 1234,
   collateral_imageURL: 'bayc.png',
-  interest: 317.5,
-  duration: 60,
+  interest: 59.5,
+  duration: 20,
+};
+
+const nft2 = {
+  type: 'nft',
+  asset: 'USDC',
+  asset_imageURL: 'usdc.png',
+  asset_amount: 80000,
+  asset_value: 79999.98,
+  collateral: 'BAYC2',
+  collateral_amount: 28,
+  collateral_value: 45384,
+  collateral_token_id: 5677,
+  collateral_imageURL: 'bayc2.png',
+  interest: 227.5,
+  duration: 10,
 };
 
 //make an array of 10 bids
 const bids = Array.from({ length: 4 }, (_, i) => nft);
 const bidscol1 = [data1, data2, textdr, nft];
-const bidscol2 = [data1, data2, textim, nft];
-const bidscol3 = [nft, data2, textfr, nft];
+const bidscol2 = [data1, data2, textim, nft2];
+const bidscol3 = [nft2, data2, textfr, nft];
 const bidsmobile = [
   data2,
   textdr,
@@ -84,7 +99,7 @@ const bidsmobile = [
   data1,
   data2,
   textim,
-  nft,
+  nft2,
   data1,
   textfr,
 ];
